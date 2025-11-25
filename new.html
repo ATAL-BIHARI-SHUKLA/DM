@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DigitalBoost – Digital Marketing E-Commerce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --primary-dark: #3730a3;
+        --accent: #f97316;
+        --bg: #0f172a;
+        --bg-light: #111827;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --card-bg: #020617;
+        --border: #1f2937;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+          sans-serif;
+      }
+
+      body {
+        background: radial-gradient(circle at top, #1e293b, #020617 55%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, 90%);
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      /* NAVBAR */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(16px);
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.95),
+          rgba(15, 23, 42, 0.4)
+        );
+        border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.35rem;
+        letter-spacing: 0.04em;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .logo span {
+        display: inline-flex;
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 20%, #facc15, #4f46e5);
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 0.95rem;
+        color: var(--muted);
+        padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+        border-bottom-color: var(--primary);
+      }
+
+      .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        border-radius: 999px;
+        padding: 0.55rem 1.4rem;
+        font-size: 0.9rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        font-weight: 500;
+        transition: background 0.2s ease, transform 0.1s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.45);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 32px rgba(79, 70, 229, 0.6);
+      }
+
+      .btn-outline {
+        border-color: rgba(148, 163, 184, 0.5);
+        background: transparent;
+        color: var(--muted);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--primary);
+        color: var(--text);
+      }
+
+      /* HERO SECTION */
+      .hero {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.2rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(15, 118, 110, 0.18);
+        border: 1px solid rgba(34, 211, 238, 0.45);
+        font-size: 0.75rem;
+        color: #a5f3fc;
+        margin-bottom: 0.75rem;
+      }
+
+      .badge-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #22c55e;
+      }
+
+      .hero-title {
+        font-size: clamp(2.1rem, 3vw + 1rem, 3.1rem);
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+
+      .hero-title span {
+        background: linear-gradient(to right, #c4b5fd, #f97316);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .hero-sub {
+        color: var(--muted);
+        max-width: 540px;
+        margin-bottom: 1.8rem;
+        font-size: 0.98rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 1.7rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .hero-meta strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.05rem;
+      }
+
+      .hero-card {
+        background: radial-gradient(
+            circle at 0% 0%,
+            rgba(56, 189, 248, 0.15),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(129, 140, 248, 0.18),
+            transparent 55%
+          ),
+          var(--bg);
+        border-radius: 18px;
+        padding: 1.8rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        box-shadow: 0 25px 60px rgba(15, 23, 42, 0.7);
+      }
+
+      .hero-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-card-header h3 {
+        font-size: 1rem;
+      }
+
+      .hero-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.75);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+      }
+
+      .growth-bar {
+        width: 100%;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.9);
+        overflow: hidden;
+        margin-bottom: 0.8rem;
+      }
+
+      .growth-bar span {
+        display: block;
+        height: 100%;
+        width: 76%;
+        background: linear-gradient(to right, #22c55e, #facc15);
+      }
+
+      .hero-metrics {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .hero-metrics strong {
+        color: #bbf7d0;
+        font-size: 0.95rem;
+      }
+
+      /* FEATURES */
+      .section-head {
+        text-align: center;
+        margin-bottom: 2.8rem;
+      }
+
+      .section-tag {
+        font-size: 0.8rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        margin-bottom: 0.4rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.8rem;
+      }
+
+      .feature-card {
+        background: var(--bg-light);
+        border-radius: 16px;
+        padding: 1.4rem;
+        border: 1px solid var(--border);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .feature-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: rgba(79, 70, 229, 0.15);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .feature-title {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .feature-text {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* ABOUT US */
+      #about {
+        background: radial-gradient(
+            circle at top left,
+            rgba(79, 70, 229, 0.16),
+            transparent 55%
+          ),
+          var(--bg-light);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .about-text h3 {
+        font-size: 1.6rem;
+        margin-bottom: 0.9rem;
+      }
+
+      .about-text p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-list {
+        list-style: none;
+        margin-top: 0.2rem;
+      }
+
+      .about-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .about-list span {
+        margin-top: 3px;
+        font-size: 1rem;
+      }
+
+      .about-stats {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1.2rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .about-stats strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.2rem;
+      }
+
+      .about-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 1.5rem;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.7);
+      }
+
+      .about-card h4 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .plan-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+        color: var(--muted);
+      }
+
+      .plan-row strong {
+        color: var(--text);
+      }
+
+      .plan-pill {
+        display: inline-flex;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        background: rgba(34, 197, 94, 0.12);
+        color: #bbf7d0;
+        margin-top: 0.7rem;
+      }
+
+      /* CONTACT FORM */
+      #contact {
+        background: var(--bg-light);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 2.5rem;
+        align-items: flex-start;
+      }
+
+      .contact-info p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .contact-pill {
+        font-size: 0.8rem;
+        margin-bottom: 0.9rem;
+        color: var(--accent);
+      }
+
+      form {
+        background: var(--card-bg);
+        border-radius: 18px;
+        padding: 1.6rem;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.8);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .field {
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+      }
+
+      .field label {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--muted);
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        width: 100%;
+        background: #020617;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        padding: 0.55rem 0.75rem;
+        color: var(--text);
+        font-size: 0.85rem;
+        outline: none;
+      }
+
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.4);
+      }
+
+      .field textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .form-note {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-top: 0.4rem;
+      }
+
+      /* CALL TO ACTION */
+      #cta {
+        background: linear-gradient(120deg, #4f46e5, #ec4899, #f97316);
+        padding: 70px 0;
+      }
+
+      .cta-inner {
+        text-align: center;
+        color: #f9fafb;
+      }
+
+      .cta-inner h2 {
+        font-size: 2rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .cta-inner p {
+        font-size: 0.98rem;
+        margin-bottom: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .cta-inner .btn {
+        background: #020617;
+        border-color: transparent;
+        color: #e5e7eb;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
+      }
+
+      .cta-inner .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      /* FOOTER */
+      footer {
+        background: #020617;
+        border-top: 1px solid var(--border);
+        padding: 28px 0;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.3rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--text);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .hero-grid,
+        .about-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 60px;
+        }
+
+        .nav-links {
+          display: none; /* simple mobile collapse (no JS) */
+        }
+
+        /* FORM: make rows single column when width is smaller */
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        section {
+          padding: 60px 0;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <div class="container nav">
+        <div class="logo"><span>DB</span> DigitalBoost</div>
+
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <!-- Pricing button removed, only contact CTA -->
+          <a href="#contact" class="btn btn-primary">Get Free Audit</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO / HOME -->
+    <main>
+      <section id="hero" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              E-Commerce Growth for Modern Brands
+            </div>
+            <h1 class="hero-title">
+              Scale your <span>digital marketing</span> and turn clicks into
+              customers.
+            </h1>
+            <p class="hero-sub">
+              DigitalBoost is a full-stack digital marketing e-commerce
+              platform. Launch high-ROI campaigns, track performance in real
+              time, and let our team of specialists grow your business while you
+              focus on products.
+            </p>
+
+            <div class="hero-actions">
+              <!-- Point main CTA to contact now -->
+              <a href="#contact" class="btn btn-primary">
+                Talk to our team →
+              </a>
+              <a href="#about" class="btn btn-outline"> Learn more about us </a>
+            </div>
+
+            <div class="hero-meta">
+              <div>
+                <strong>2.3x</strong>
+                Avg. revenue growth
+              </div>
+              <div>
+                <strong>120+</strong>
+                E-commerce brands onboarded
+              </div>
+              <div>
+                <strong>98%</strong>
+                Client satisfaction
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <h3>Live Campaign Overview</h3>
+                <div class="hero-tag">Last 30 days</div>
+              </div>
+
+              <div class="growth-bar">
+                <span></span>
+              </div>
+
+              <div class="hero-metrics">
+                <div>
+                  Revenue
+                  <strong>$42,830</strong>
+                </div>
+                <div>
+                  ROAS
+                  <strong>4.7x</strong>
+                </div>
+                <div>
+                  Conversions
+                  <strong>1,283</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-tag">Features</p>
+            <h2 class="section-title">
+              Everything you need to market & sell online
+            </h2>
+            <p class="section-subtitle">
+              From paid ads to email automation, manage all your digital
+              marketing in one place and turn your website into a sales engine.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <div class="feature-icon">📊</div>
+              <h3 class="feature-title">Performance Dashboard</h3>
+              <p class="feature-text">
+                View revenue, ROAS, and campaign performance in one intuitive
+                dashboard with real-time reporting.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">🎯</div>
+              <h3 class="feature-title">Paid Ads Management</h3>
+              <p class="feature-text">
+                Full-service management for Meta, Google, and YouTube ads to
+                capture high-intent buyers and boost your store conversions.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">✉️</div>
+              <h3 class="feature-title">Email & Automation</h3>
+              <p class="feature-text">
+                Recover abandoned carts, segment your audience, and send
+                automated campaigns that drive repeat purchases.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">📱</div>
+              <h3 class="feature-title">Social Media Funnels</h3>
+              <p class="feature-text">
+                Strategic content & funnel design for Instagram, Facebook, and
+                TikTok to bring consistent traffic to your store.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">🔍</div>
+              <h3 class="feature-title">SEO & Content</h3>
+              <p class="feature-text">
+                On-page SEO, blogs, and product descriptions optimized to rank
+                higher and attract organic buyers.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">🤝</div>
+              <h3 class="feature-title">Dedicated Account Manager</h3>
+              <p class="feature-text">
+                Work with a dedicated specialist who understands your brand and
+                optimizes campaigns every week.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT US -->
+      <section id="about">
+        <div class="container about-grid">
+          <div class="about-text">
+            <h3>About DigitalBoost</h3>
+            <p>
+              We’re a performance-driven digital marketing studio focused on
+              e-commerce brands. Our team blends creative storytelling with
+              data-backed strategies to help you grow sustainably, not just “go
+              viral”.
+            </p>
+            <p>
+              Whether you’re just launching your store or already doing
+              6-figures per month, we’ll plug into your business like an
+              in-house growth team.
+            </p>
+
+            <ul class="about-list">
+              <li>
+                <span>✅</span> End-to-end campaign setup, tracking, and
+                optimization.
+              </li>
+              <li>
+                <span>✅</span> Weekly performance calls & transparent reports.
+              </li>
+              <li>
+                <span>✅</span> Creative assets designed for conversion, not
+                just likes.
+              </li>
+            </ul>
+
+            <div class="about-stats">
+              <div>
+                <strong>5+</strong>
+                Years in e-commerce marketing
+              </div>
+              <div>
+                <strong>$3M+</strong>
+                Ad spend managed
+              </div>
+              <div>
+                <strong>32</strong>
+                Countries served
+              </div>
+            </div>
+          </div>
+
+          <aside class="about-card">
+            <h4>Done-for-you growth engine</h4>
+            <div class="plan-row">
+              <span>Audit & strategy</span>
+              <strong>Free</strong>
+            </div>
+            <div class="plan-row">
+              <span>Implementation time</span>
+              <strong>7–14 days</strong>
+            </div>
+            <div class="plan-row">
+              <span>Average payback</span>
+              <strong>60 days</strong>
+            </div>
+            <p class="plan-pill">
+              Perfect for Shopify, WooCommerce & D2C brands
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- CONTACT FORM -->
+      <section id="contact">
+        <div class="container contact-grid">
+          <div class="contact-info">
+            <p class="contact-pill">Contact us</p>
+            <h2 class="section-title" style="text-align: left">
+              Tell us about your store
+            </h2>
+            <p>
+              Fill out the form and our team will review your store, send a free
+              audit, and recommend the best growth plan within 24 hours.
+            </p>
+            <p>
+              Prefer talking directly? Add your WhatsApp number or schedule a
+              call and we’ll get on a quick strategy session.
+            </p>
+          </div>
+
+          <form>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="email">Work Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="you@brand.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="store">Store / Brand Name</label>
+                <input
+                  type="text"
+                  id="store"
+                  placeholder="DigitalBoost Store"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="website">Website URL</label>
+                <input
+                  type="url"
+                  id="website"
+                  placeholder="https://yourstore.com"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="revenue">Monthly Revenue</label>
+                <select id="revenue">
+                  <option value="">Select range</option>
+                  <option>Pre-launch</option>
+                  <option>Under $5k</option>
+                  <option>$5k – $20k</option>
+                  <option>$20k – $50k</option>
+                  <option>$50k+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="budget">Ad Spend Budget / month</label>
+                <select id="budget">
+                  <option value="">Select range</option>
+                  <option>Under $500</option>
+                  <option>$500 – $2k</option>
+                  <option>$2k – $5k</option>
+                  <option>$5k+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">What do you want to improve?</label>
+              <textarea
+                id="message"
+                placeholder="Tell us about your goals, challenges, and timelines..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Request Free Audit →
+            </button>
+            <p class="form-note">
+              By submitting, you agree to be contacted regarding marketing
+              services. No spam, ever.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <!-- CALL TO ACTION -->
+      <section id="cta">
+        <div class="container">
+          <div class="cta-inner">
+            <h2>Ready to boost your store’s revenue?</h2>
+            <p>
+              Join 120+ e-commerce brands that trust DigitalBoost to manage
+              their digital marketing. Start with a free, no-obligation growth
+              audit.
+            </p>
+            <a href="#contact" class="btn"> Get Started in 2 Minutes → </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-row">
+        <p>© 2025 DigitalBoost Marketing. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

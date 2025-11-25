@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GrowthClick | Digital Marketing Solutions</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --primary: #4f46e5; /* Indigo */
+        --secondary: #1e1b4b; /* Dark Blue */
+        --accent: #ec4899; /* Pink for CTAs */
+        --text-dark: #333;
+        --text-light: #f3f4f6;
+        --bg-light: #ffffff;
+        --bg-gray: #f9fafb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        line-height: 1.6;
+        color: var(--text-dark);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* --- NAVBAR --- */
+      header {
+        background: var(--bg-light);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .cart-icon {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        background: linear-gradient(
+            rgba(30, 27, 75, 0.9),
+            rgba(30, 27, 75, 0.8)
+          ),
+          url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding-top: 80px;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #db2777;
+        transform: translateY(-3px);
+      }
+
+      /* --- FEATURES --- */
+      .features {
+        padding: 80px 0;
+        background: var(--bg-gray);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        margin-bottom: 10px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .feature-card i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      /* --- ABOUT US --- */
+      .about {
+        padding: 80px 0;
+      }
+
+      .about-container {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+      }
+
+      .about-img {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-img img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      /* --- SERVICES / PRODUCTS (E-COMMERCE) --- */
+      .shop {
+        padding: 80px 0;
+        background: var(--bg-gray);
+      }
+
+      .shop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+
+      .badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--accent);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .product-header {
+        background: var(--secondary);
+        color: white;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 10px;
+      }
+
+      .product-body {
+        padding: 30px;
+      }
+
+      .product-body ul {
+        margin-bottom: 20px;
+      }
+
+      .product-body li {
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      .product-body li i {
+        color: #10b981; /* Green checkmark */
+        margin-right: 10px;
+      }
+
+      .btn-block {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: var(--primary);
+        color: white;
+      }
+
+      /* --- CTA SECTION --- */
+      .cta {
+        background: var(--primary);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .cta h2 {
+        margin-bottom: 20px;
+      }
+
+      /* --- CONTACT FORM --- */
+      .contact {
+        padding: 80px 0;
+      }
+
+      .form-box {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .input-group input,
+      .input-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background: var(--secondary);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h3 {
+        margin-bottom: 20px;
+        color: var(--accent);
+      }
+
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--accent);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 80px;
+          right: 0;
+          height: calc(100vh - 80px);
+          background: white;
+          flex-direction: column;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in;
+        }
+
+        .nav-links.active {
+          transform: translateX(0%);
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Growth<span>Click</span>.</div>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#shop">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div
+            class="icons-container"
+            style="display: flex; align-items: center; gap: 20px"
+          >
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+              <i class="fas fa-bars"></i>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1>Scale Your Business With<br />Data-Driven Strategies</h1>
+        <p>
+          We provide premium digital marketing packages tailored to grow your
+          traffic, leads, and revenue.
+        </p>
+        <a href="#shop" class="btn btn-primary">View Packages</a>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose Us?</h2>
+          <p>We don't just deliver clicks, we deliver results.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Proven ROI</h3>
+            <p>
+              Strategies designed to maximize your return on investment with
+              transparent reporting.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-users"></i>
+            <h3>Targeted Reach</h3>
+            <p>
+              We identify your ideal customer profile and target them with
+              surgical precision.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Support</h3>
+            <p>
+              Dedicated account managers available round the clock to assist
+              your growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-container">
+          <div class="about-img">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Team Working"
+            />
+          </div>
+          <div class="about-text">
+            <h2>About GrowthClick</h2>
+            <p>
+              Founded in 2020, we are a team of creative thinkers and data
+              analysts. We believe that digital marketing should be accessible,
+              transparent, and effective.
+            </p>
+            <p>
+              Our mission is to democratize marketing success by offering
+              standard, easy-to-purchase packages that take the guesswork out of
+              hiring an agency.
+            </p>
+            <br />
+            <a
+              href="#contact"
+              class="btn btn-primary"
+              style="background-color: var(--secondary)"
+              >Meet The Team</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop" id="shop">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Packages</h2>
+          <p>Select a plan that fits your business goals.</p>
+        </div>
+        <div class="shop-grid">
+          <div class="product-card">
+            <div class="product-header">
+              <h3>SEO Starter</h3>
+              <div class="price">$499<small>/mo</small></div>
+            </div>
+            <div class="product-body">
+              <ul>
+                <li><i class="fas fa-check"></i> Keyword Research</li>
+                <li><i class="fas fa-check"></i> On-Page Optimization</li>
+                <li><i class="fas fa-check"></i> 2 Blog Posts</li>
+                <li><i class="fas fa-check"></i> Monthly Reporting</li>
+              </ul>
+              <button
+                class="btn btn-block"
+                onclick="alert('Added SEO Starter to cart!')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <span class="badge">Best Value</span>
+            <div class="product-header" style="background: var(--primary)">
+              <h3>Social Growth</h3>
+              <div class="price">$899<small>/mo</small></div>
+            </div>
+            <div class="product-body">
+              <ul>
+                <li><i class="fas fa-check"></i> 3 Platforms (IG, FB, Li)</li>
+                <li><i class="fas fa-check"></i> 12 Custom Posts</li>
+                <li><i class="fas fa-check"></i> Community Management</li>
+                <li>
+                  <i class="fas fa-check"></i> Ad Management ($500 budget)
+                </li>
+              </ul>
+              <button
+                class="btn btn-block"
+                onclick="alert('Added Social Growth to cart!')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-header">
+              <h3>PPC Dominator</h3>
+              <div class="price">$1200<small>/mo</small></div>
+            </div>
+            <div class="product-body">
+              <ul>
+                <li><i class="fas fa-check"></i> Google Ads Setup</li>
+                <li><i class="fas fa-check"></i> Conversion Tracking</li>
+                <li><i class="fas fa-check"></i> A/B Testing</li>
+                <li><i class="fas fa-check"></i> Weekly Optimization</li>
+              </ul>
+              <button
+                class="btn btn-block"
+                onclick="alert('Added PPC Dominator to cart!')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Not sure which package is right for you?</h2>
+        <p>Book a free 15-minute strategy call with our experts.</p>
+        <br />
+        <a
+          href="#contact"
+          class="btn"
+          style="background: white; color: var(--primary)"
+          >Book Strategy Call</a
+        >
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Get In Touch</h2>
+        </div>
+        <div class="form-box">
+          <form>
+            <div class="input-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="John Doe" required />
+            </div>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="john@company.com"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="service">Interested In</label>
+              <select
+                id="service"
+                style="
+                  width: 100%;
+                  padding: 12px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                "
+              >
+                <option>General Inquiry</option>
+                <option>SEO Packages</option>
+                <option>Social Media</option>
+                <option>PPC Ads</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Tell us about your project..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>GrowthClick.</h3>
+            <p>
+              Your partner in digital excellence. We help brands find their
+              voice and their customers.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#shop">Packages</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">SEO Optimization</a></li>
+              <li><a href="#">Content Marketing</a></li>
+              <li><a href="#">Paid Advertising</a></li>
+              <li><a href="#">Web Development</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <a href="#" style="margin-right: 10px"
+                ><i class="fab fa-facebook fa-lg"></i
+              ></a>
+              <a href="#" style="margin-right: 10px"
+                ><i class="fab fa-twitter fa-lg"></i
+              ></a>
+              <a href="#" style="margin-right: 10px"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 GrowthClick Digital Agency. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
